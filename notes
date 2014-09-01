@@ -1,5 +1,9 @@
 #put our notes here about how we want to attack
 
+#possible languages
+- ruby
+- go
+
 #from whiteboard
 
 Tampering: A really big file with a small tamper(modification) like altering one bit at the end of a file
