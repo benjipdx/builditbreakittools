@@ -1,0 +1,19 @@
+This file is intended to provide an expected outcome to the batch file "willfailtestbatch".
+
+Line Number     Expected  Test      Scenario
+Initial/Final   Restult   Type
+--------------------------------------------------------------------------------------------------------------------------
+5/6             ??              Can namespace collide across employee/guest division - I think yes, but it deserves watching.
+8/ 9-10         9 F 10 F   -A   Person should not be able to leave and re-enter gallery - employee test
+12/ 13-14       13 F 14 F  -A   Person should not be able to leave and re-enter gallery - guest test
+15/15           15 F       -A   Can't enter room before entering gallery - employee
+16/16           16 F       -A   Can't enter room before entering gallery - guest
+17/17           17 F       -L   Can't leave room without being in gallery - employee
+18/18           18 F       -L   Can't leave room without being in gallery - guest
+19/19           19 F       -L   Can't leave gallery without being in gallery - employee
+20/20           20 F       -L   Can't leave gallery without being in gallery - guest
+21/22           22 F       -L   Can't leave room without being in it (in dif room) - employee
+23/24           24 F       -L   Can't leave room without being in it (in dif room) - guest
+25              25 F       -L   Can't leave room without being in it (in gallery only) - employee
+26              26 F       -L   Can't leave room without being in it (in gallery only) - guest
+

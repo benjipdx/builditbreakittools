@@ -23,12 +23,12 @@ Siphon Info from SQL DB
 
 Correctness: Must be tested in batch and single mode  | type
 ---------------------------------------------------------------
-enter room w/o being in gallery         E,G     -A
+enter room w/o being in gallery         E,G     -A      complete 15/16
 enter room w/o leaving room             E,G     -A
-leave room w/o being in room            E,G     -L
+leave room w/o being in room            E,G     -L      complete
 leave gallery while still in room       E,G     -L
-leave room w/o being in gallery         E,G     -L
-enter gallery twice / reenter           E,G     -A
+leave room w/o being in gallery         E,G     -L      complete 16/17
+enter gallery twice / reenter           E,G     -A      complete 6-14
 time stamp is negative                  E,G     -T
 timestamp is same                               -T
 tiemstamp less                                  -T
@@ -38,9 +38,11 @@ overflow token                                  -K
 room number is negative
 room number is 003 vs 03 vs 3
 room number is 0
+shuffle order of arguments -K foo -T 10 vs -T 10 -K foo
+realllllllllly long name
+register overflow (reallllly big number)
+name collision                                            complete 5/6
 
 
-
-
-reenter gallery                         E,G     -L
+reenter gallery                         E,G     -L        Complete
 

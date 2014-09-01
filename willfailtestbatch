@@ -1,0 +1,36 @@
+-T 0 -K token -E eA -A log1
+-T 1 -K token -E eB -A log1
+-T 2 -K token -G gA -A log1
+-T 3 -K token -G gB -A log1
+-T 4 -K token -E pA -A log1
+-T 5 -K token -G pA -A log1
+-T 6 -K token -E pB -A log1
+-T 7 -K token -E pB -L log1
+-T 8 -K token -E pB -A log1
+-T 9 -K token -E pB -A -R 1 log1
+-T 10 -K token -G pC -A log1
+-T 11 -K token -G pC -L log1
+-T 12 -K token -G pC -A log1
+-T 13 -K token -G pC -A -R 1 log1
+-T 14 -K token -E eC -A -R 1 log1
+-T 15 -K token -G gC -A -R 1 log1
+-T 16 -K token -E eD -L -R 1 log1
+-T 17 -K token -G gD -L -R 1 log1
+-T 18 -K token -E eE -L log1
+-T 19 -K token -G gE -L log1
+-T 20 -K token -E eA -A -R 1 log1
+-T 21 -K token -E eA -L -R 2 log1
+-T 22 -K token -G gA -A -R 1 log1
+-T 23 -K token -G gA -L -R 2 log1
+-T 24 -K token -E eB -L -R 2 log1
+-T 25 -K token -G gB -L -R 2 log1
+// need two more leaving test a) where someone who is
+// in the gallery and in a room and then left that room
+// tries to leave the same room again.
+// b) where they try to leave a different room.
+
+// Am using unique people every time
+// to isolate possible correctness faults. It is
+// conceivable that we could get a false positive
+// or miss a case by colliding activities.
+
