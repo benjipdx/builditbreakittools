@@ -1,1 +1,42 @@
 #put our notes here about how we want to attack
+
+#from whiteboard
+
+Tampering: A really big file with a small tamper(modification) like altering one bit at the end of a file
+
+- inject unicode
+- negative numbers
+- integer overflow
+- signed/vs/unsigned
+- multi-tag (E and G) not one or the other
+- offtag readlog -U with -S
+
+Performance: a really big file to batch / read
+
+#from whiteboard
+
+Siphon Info from SQL DB
+
+Correctness: Must be tested in batch and single mode  | type
+---------------------------------------------------------------
+enter room w/o being in gallery         E,G     -A
+enter room w/o leaving room             E,G     -A
+leave room w/o being in room            E,G     -L
+leave gallery while still in room       E,G     -L
+leave room w/o being in gallery         E,G     -L
+enter gallery twice / reenter           E,G     -A
+time stamp is negative                  E,G     -T
+timestamp is same                               -T
+tiemstamp less                                  -T
+add person to gallery who is already there (non unique name)
+wrong token                                     -K
+overflow token                                  -K
+room number is negative
+room number is 003 vs 03 vs 3
+room number is 0
+
+
+
+
+reenter gallery                         E,G     -L
+
