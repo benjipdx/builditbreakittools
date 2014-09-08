@@ -75,14 +75,14 @@
 -T 221 -K token -E eK -A log1
 -T 222 -K token -E eK -A -R 1 log1
 -T 223 -K token -E eK -L -R 1 log1
--T 224 -K token -E eL -L log1
--T 225 -K token -E eL -L log1
+-T 224 -K token -E eK -L log1
+-T 225 -K token -E eK -L log1
 // Can't leave gallery twice (out of room) - guest
 -T 231 -K token -G gK -A log1
 -T 232 -K token -G gK -A -R 1 log1
 -T 233 -K token -G gK -L -R 1 log1
--T 234 -K token -G gL -L log1
--T 235 -K token -G gL -L log1
+-T 234 -K token -G gK -L log1
+-T 235 -K token -G gK -L log1
 // Can't arrive twice(in gallery) - employee
 -T 241 -K token -E eM -A log1
 -T 242 -K token -E eM -A log1
