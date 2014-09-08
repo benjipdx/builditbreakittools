@@ -1,28 +1,102 @@
+// Can namespace collide across employee/guest division - I think yes, but it deserves watchi
 -T 0 -K token -E pA -A log1
--T 1 -K token -G pA -A log1
--T 2 -K token -E eA -A log1
--T 3 -K token -E eA -L log1
--T 4 -K token -E eA -A log1
--T 5 -K token -G gA -A log1
--T 6 -K token -G gA -L log1
--T 7 -K token -G gA -A log1
--T 8 -K token -E eB -A -R 1 log1
--T 9 -K token -G gB -A -R 1 log1
--T 10 -K token -E eC -L log1
--T 11 -K token -G gC -L log1
--T 12 -K token -E eD -L -R 2 log1
--T 13 -K token -G gD -L -R 2 log1
--T 14 -K token -E eE -A log1
--T 15 -K token -E eE -L -R 1 log1
--T 16 -K token -G gE -A log1
--T 17 -K token -G gE -L -R 1 log1
--T 18 -K token -E eF -A log1
--T 19 -K token -E eF -A -R 1 log1
--T 20 -K token -E eF -L -R 2 log1
--T 21 -K token -G gF -A log1
--T 22 -K token -G gF -A -R 1 log1
--T 23 -K token -G gF -L -R 2 log1
-
+-T 5 -K token -G pA -A log1
+// Can't have event prior to latest event - employee
+-T 2 -K token -E pB -A log1
+// Can't have event prior to latest event - guest
+-T 3 -K token -G pC -A log1
+// Can't have event as same time of latest event - employee
+-T 5 -K token -E pD -A log1
+// Can't have event as same time of latest event - guest
+-T 5 -K token -G pE -A log1
+// Can't leave and re-enter gallery - employee test
+-T 11 -K token -E eA -A log1
+-T 12 -K token -E eA -L log1
+-T 13 -K token -E eA -A log1
+// Can't leave and re-enter gallery - guest test
+-T 21 -K token -G gA -A log1
+-T 22 -K token -G gA -L log1
+-T 23 -K token -G gA -A log1
+// Can't enter room before entering gallery - employee
+-T 31 -K token -E eB -A -R 1 log1
+// Can't enter room before entering gallery - guest
+-T 41 -K token -G gB -A -R 1 log1
+// Can't leave gallery without being in gallery - employee
+-T 51 -K token -E eC -L log1
+// Can't leave gallery without being in gallery - guest
+-T 61 -K token -G gC -L log1
+// Can't leave room without being in gallery - employee
+-T 71 -K token -E eD -L -R 2 log1
+// 8an't leave room without being in gallery - guest
+-T 91 -K token -G gD -L -R 2 log1
+// Can't leave room without being in it (in gallery only) - employee
+-T 101 -K token -E eE -A log1
+-T 102 -K token -E eE -L -R 1 log1
+// Can't leave room without being in it (in gallery only) - guest
+-T 111 -K token -G gE -A log1
+-T 112 -K token -G gE -L -R 1 log1
+// Can't leave room without being in it (in dif room) - employee
+-T 121 -K token -E eF -A log1
+-T 122 -K token -E eF -A -R 1 log1
+-T 123 -K token -E eF -L -R 2 log1
+// Can't leave room without being in it (in dif room) - guest
+-T 131 -K token -G gF -A log1
+-T 132 -K token -G gF -A -R 1 log1
+-T 133 -K token -G gF -L -R 2 log1
+// Can't enter a room when you are in one - employee
+-T 141 -K token -E eG -A log1
+-T 142 -K token -E eG -A -R 1 log1
+-T 143 -K token -E eG -A -R 2 log1
+// Can't enter a room when you are in one - guest
+-T 151 -K token -G gG -A log1
+-T 152 -K token -G gG -A -R 1 log1
+-T 153 -K token -G gG -A -R 2 log1
+// Can't leave gallery if you a aren't in it - employee
+-T 161 -K token -E eH -L log1
+// Can't leave gallery if you a aren't in it - guest
+-T 171 -K token -G gH -L log1
+// Can't leave gallery if you are in a room. - employee
+-T 181 -K token -E eI -A log1
+-T 182 -K token -E eI -A -R 1 log1
+-T 183 -K token -E eI -L log1
+// Can't leave gallery if you are in a room. - guest
+-T 191 -K token -G gI -A log1
+-T 192 -K token -G gI -A -R 1 log1
+-T 193 -K token -G gI -L log1
+// Can't leave gallery twice (from gallery) - employee
+-T 201 -K token -E eJ -A log1
+-T 202 -K token -E eJ -L log1
+-T 203 -K token -E eJ -L log1
+// Can't leave gallery twice (from gallery) - guest
+-T 211 -K token -G gJ -A log1
+-T 212 -K token -G gJ -L log1
+-T 213 -K token -G gJ -L log1
+// Can't leave gallery twice (out of room) - employee
+-T 221 -K token -E eK -A log1
+-T 222 -K token -E eK -A -R 1 log1
+-T 223 -K token -E eK -L -R 1 log1
+-T 224 -K token -E eL -L log1
+-T 225 -K token -E eL -L log1
+// Can't leave gallery twice (out of room) - guest
+-T 231 -K token -G gK -A log1
+-T 232 -K token -G gK -A -R 1 log1
+-T 233 -K token -G gK -L -R 1 log1
+-T 234 -K token -G gL -L log1
+-T 235 -K token -G gL -L log1
+// Can't arrive twice(in gallery) - employee
+-T 241 -K token -E eM -A log1
+-T 242 -K token -E eM -A log1
+// Can't arrive twice(in gallery) - guest
+-T 251 -K token -G gM -A log1
+-T 252 -K token -G gM -A log1
+// Can't arrive twice(in room) - employee
+-T 261 -K token -E eN -A log1
+-T 262 -K token -E eN -A -R 1 log1
+-T 263 -K token -E eN -A log1
+// Can't arrive twice(in room) - guest
+-T 271 -K token -G gN -A log1
+-T 272 -K token -G gN -A -R log1
+-T 273 -K token -G gN -A log1
 
 
 
