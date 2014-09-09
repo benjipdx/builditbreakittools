@@ -47,18 +47,22 @@
 -T 131 -K token -G gF -A log1
 -T 132 -K token -G gF -A -R 1 log1
 -T 133 -K token -G gF -L -R 2 log1
-// Can't enter a room when you are in one - employee
+// Can't enter a room when you are in dif one - employee
 -T 141 -K token -E eG -A log1
 -T 142 -K token -E eG -A -R 1 log1
 -T 143 -K token -E eG -A -R 2 log1
-// Can't enter a room when you are in one - guest
+// Can't enter a room when you are in dif one - guest
 -T 151 -K token -G gG -A log1
 -T 152 -K token -G gG -A -R 1 log1
 -T 153 -K token -G gG -A -R 2 log1
-// Can't leave gallery if you a aren't in it - employee
--T 161 -K token -E eH -L log1
-// Can't leave gallery if you a aren't in it - guest
--T 171 -K token -G gH -L log1
+// Can't enter room while in the same room - employee
+-T 161 -K token -E eH -A log1
+-T 162 -K token -E eH -A -R 1 log1
+-T 163 -K token -E eH -A -R 1 log1
+// Can't enter room while in the same room - guest
+-T 171 -K token -G gH -A log1
+-T 172 -K token -G gH -A -R 1 log1
+-T 173 -K token -G gH -A -R 1 log1
 // Can't leave gallery if you are in a room. - employee
 -T 181 -K token -E eI -A log1
 -T 182 -K token -E eI -A -R 1 log1
@@ -87,17 +91,17 @@
 -T 233 -K token -G gK -L -R 1 log1
 -T 234 -K token -G gK -L log1
 -T 235 -K token -G gK -L log1
-// Can't arrive twice(in gallery) - employee
+// Can't arrive gallery twice(in gallery) - employee
 -T 241 -K token -E eM -A log1
 -T 242 -K token -E eM -A log1
-// Can't arrive twice(in gallery) - guest
+// Can't arrive gallery twice(in gallery) - guest
 -T 251 -K token -G gM -A log1
 -T 252 -K token -G gM -A log1
-// Can't arrive twice(in room) - employee
+// Can't arrive gallery twice(in room) - employee
 -T 261 -K token -E eN -A log1
 -T 262 -K token -E eN -A -R 1 log1
 -T 263 -K token -E eN -A log1
-// Can't arrive twice(in room) - guest
+// Can't arrive gallery twice(in room) - guest
 -T 271 -K token -G gN -A log1
 -T 272 -K token -G gN -A -R log1
 -T 273 -K token -G gN -A log1
@@ -107,7 +111,6 @@
 // Room Number alphanumeric ('negative integer' should fail) - guest
 -T 291 -K token -G gP -A log1
 -T 292 -K token -G gP -A -R -3 log1
-
 
 
 

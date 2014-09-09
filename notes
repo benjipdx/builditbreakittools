@@ -23,26 +23,55 @@ Siphon Info from SQL DB
 
 Correctness: Must be tested in batch and single mode  | type
 ---------------------------------------------------------------
-enter room w/o being in gallery         E,G     -A      complete 15/16
-enter room w/o leaving room             E,G     -A
-leave room w/o being in room            E,G     -L      complete
-leave gallery while still in room       E,G     -L
-leave room w/o being in gallery         E,G     -L      complete 16/17
-enter gallery twice / reenter           E,G     -A      complete 6-14
-time stamp is negative                  E,G     -T
-timestamp is same                               -T
-tiemstamp less                                  -T
-add person to gallery who is already there (non unique name)
+Timestamp
++++++++++++++++++++++++++++
+can't be negative             comp  -2
+can't come before             comp  2
+can't be the same             comp  5
+can't have unicode
+
+namespace
+++++++++++++++++++++++++++
+collision across employee/guest comp  0
+can't have unicode
+check to see dupe name          comp 301/321
+        like entering 2x
+
+roomnumber
+++++++++++++++++++++++++++
+room number nont negative (alphanum)comp 281
+
+
+
+Entering
+++++++++++++++++++++++++++
+can't re-enter gallery after left   comp 11
+can't arrive gal 2x in gallery      comp 241
+can't arrive gal 2x in room         comp 261
+can't enter room before gal         comp 31
+can't enter room while in dif room  comp 141
+can't enter room while in same room comp 161
+
+
+Leaving
+++++++++++++++++++++++++++
+can't leave gal before in it        comp 51
+can't leave gal while in room       comp 181
+can't leave gal after left gal (ALA)comp 201
+can't leave gal after left gal room comp 221
+can't leave room w/o being in gal   comp 71
+can't leave room while in gal       comp 101
+can't leave room while in dif room  comp 121
+
+
+
 wrong token                                     -K
 overflow token                                  -K
-room number is negative
-room number is 003 vs 03 vs 3
+room number is 003 vs 03 vs 3                           -- have to use logread to ensure this happened
 room number is 0
 shuffle order of arguments -K foo -T 10 vs -T 10 -K foo
 realllllllllly long name
 register overflow (reallllly big number)
-name collision                                            complete 5/6
 
 
-reenter gallery                         E,G     -L        Complete
 
