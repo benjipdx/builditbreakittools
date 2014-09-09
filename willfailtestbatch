@@ -1,6 +1,10 @@
-// Can namespace collide across employee/guest division - I think yes, but it deserves watchi
+// Timestamp can't be negative
+-T -2 -K token -E pAA -A log1
+-T -1 -K token -G pBB -A log1
+// Can namespace collide across employee/guest division - I think yes, but it deserves watching - also setup for time check
 -T 0 -K token -E pA -A log1
--T 5 -K token -G pA -A log1
+-T 5 -K token -E pA -A -R 1 log1
+-T 6 -K token -G pA -A log1
 // Can't have event prior to latest event - employee
 -T 2 -K token -E pB -A log1
 // Can't have event prior to latest event - guest
@@ -97,6 +101,14 @@
 -T 271 -K token -G gN -A log1
 -T 272 -K token -G gN -A -R log1
 -T 273 -K token -G gN -A log1
+// Room Number alphanumeric ('negative integer' should fail) - employee
+-T 281 -K token -E eP -A log1
+-T 282 -K token -E ep -A -R -2 log1
+// Room Number alphanumeric ('negative integer' should fail) - guest
+-T 291 -K token -G gP -A log1
+-T 292 -K token -G gP -A -R -3 log1
+
+
 
 
 
