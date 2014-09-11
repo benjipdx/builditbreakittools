@@ -111,9 +111,40 @@
 // Room Number alphanumeric ('negative integer' should fail) - guest
 -T 291 -K token -G gP -A log1
 -T 292 -K token -G gP -A -R -3 log1
-
-
-
+// Can't leave room after left room- employee
+-T 301 -K token -E eQ -A log1
+-T 302 -K token -E eQ -A -R 1 log1
+-T 303 -K token -E eQ -L -R 1 log1
+-T 304 -K token -E eQ -L -R 1 log1
+// Can't leave room after left room -guest
+-T 311 -K token -G gQ -A log1
+-T 312 -K token -G gQ -A -R 1 log1
+-T 313 -K token -G gQ -L -R 1 log1
+-T 314 -K token -G gQ -L -R 1 log1
+// Can't enter room after left gallery - employee
+-T 321 -K token -E eR -A log1
+-T 322 -K token -E eR -A -R 1 log1
+-T 323 -K token -E eR -L -R 1 log1
+-T 324 -K token -E eR -L log1
+-T 325 -K token -E eR -A -R 1 log1
+// Can't enter room after left gallery - guest
+-T 331 -K token -G gR -A log1
+-T 332 -K token -G gR -A -R 1 log1
+-T 333 -K token -G gR -L -R 1 log1
+-T 334 -K token -G gR -L log1
+-T 335 -K token -G gR -A -R 1 log1
+// Can't leave room after left gallery - employee
+-T 341 -K token -E eS -A log1
+-T 342 -K token -E eS -A -R 1 log1
+-T 343 -K token -E eS -L -R 1 log1
+-T 344 -K token -E eS -L log1
+-T 345 -K token -E eS -L -R 1 log1
+// Can't leave room after left gallery - guest
+-T 351 -K token -G gS -A log1
+-T 352 -K token -G gS -A -R 1 log1
+-T 353 -K token -G gS -L -R 1 log1
+-T 354 -K token -G gS -L log1
+-T 355 -K token -G gS -L -R 1 log1
 
 // need two more leaving test a) where someone who is
 // in the gallery and in a room and then left that room

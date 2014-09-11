@@ -1,4 +1,4 @@
-#put our notes here about how we want to attack
+#ut our notes here about how we want to attack
 
 #possible languages
 - ruby
@@ -29,17 +29,21 @@ can't be negative             comp  -2
 can't come before             comp  2
 can't be the same             comp  5
 can't have unicode
+can't be alpha
 
 namespace
 ++++++++++++++++++++++++++
 collision across employee/guest comp  0
 can't have unicode
+can't be numeric
 check to see dupe name          comp 301/321
         like entering 2x
 
 roomnumber
 ++++++++++++++++++++++++++
 room number nont negative (alphanum)comp 281
+can't be alpha
+can't be unicode
 
 
 
@@ -51,7 +55,7 @@ can't arrive gal 2x in room         comp 261
 can't enter room before gal         comp 31
 can't enter room while in dif room  comp 141
 can't enter room while in same room comp 161
-
+can't enter room after left gallery comp 321
 
 Leaving
 ++++++++++++++++++++++++++
@@ -62,8 +66,8 @@ can't leave gal after left gal room comp 221
 can't leave room w/o being in gal   comp 71
 can't leave room while in gal       comp 101
 can't leave room while in dif room  comp 121
-
-
+can't leave room after left room    comp 301
+can't leave room after left galelry comp 341
 
 wrong token                                     -K
 overflow token                                  -K
