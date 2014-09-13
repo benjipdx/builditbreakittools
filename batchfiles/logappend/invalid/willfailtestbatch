@@ -1,3 +1,40 @@
+// UNICODE STYLE TESTS
+// timestamp
+-T ፲ -K token -E ethiopian -A log10
+-T ௲ -K token -E tamil -A log10
+-T ⑩  -K token -E circleten -A log10
+-T ⑾  -K token -E cicrleeleven -A log10
+-T ⒓  -K token -E fullstoptwelve -A log10
+-T ⓭  -K token -E circletthirteen -A log10
+-T foo -K token -E alphatimestampe -A log10
+// token
+-T 1 -K ffÀff -E Agrave -A log9
+-T 2 -K aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -E longToken -A log8
+-T 3 -K b -G wrongtoken -A log8
+// room number 0 v 00 and unicode and negative
+-T 1 -K token -G guestA -A log7
+-T 2 -K token -G guestB -A log7
+-T 3 -K token -G guestC -A log7
+-T 4 -K token -G guestD -A log7
+-T 5 -K token -G guestE -A log7
+-T 6 -K token -G guestF -A log7
+-T 7 -K token -G guestG -A log7
+-T 8 -K token -G guestH -A log7
+-T 9 -K token -G guestI -A log7
+-T 10 -K token -G guestJ -A log7
+-T 11 -K token -G guestK -A log7
+-T 12 -K token -G guestA -A -R 2 log7
+-T 13 -K token -G guestB -A -R 02 log7
+-T 14 -K token -G guestC -A -R 002 log7
+-T 15 -K tokem -G guestD -A -R 0 log7
+-T 16 -K token -G guestE -A -R ⓭ log7
+-T 17 -K token -G guestF -A -R 99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999 log7
+-T 18 -K token -G guestG -A -R 9223372036854775808 log7
+-T 19 -K token -G guestH -A -R 18446744073709551616 log7
+-T 20 -K token -G guestI -A -R foo log7
+
+
+
 // Timestamp can't be negative
 -T -2 -K token -E pAA -A log1
 -T -1 -K token -G pBB -A log1
@@ -146,13 +183,4 @@
 -T 354 -K token -G gS -L log1
 -T 355 -K token -G gS -L -R 1 log1
 
-// need two more leaving test a) where someone who is
-// in the gallery and in a room and then left that room
-// tries to leave the same room again.
-// b) where they try to leave a different room.
-
-// Am using unique people every time
-// to isolate possible correctness faults. It is
-// conceivable that we could get a false positive
-// or miss a case by colliding activities.
 

@@ -23,13 +23,18 @@ Siphon Info from SQL DB
 
 Correctness: Must be tested in batch and single mode  | type
 ---------------------------------------------------------------
+Add line after each "should fail" case that is legit to ensure
+that the log is working appropriately. While this happens as the
+test cases run in general I have added a line where it is person
+specific. // IDEA SCRAPPED IN THE INTEREST OF AUTOMATION
+
 Timestamp
 +++++++++++++++++++++++++++
 can't be negative             comp  -2
 can't come before             comp  2
 can't be the same             comp  5
-can't have unicode
-can't be alpha
+can't have unicode            comp unicode
+can't be alpha                comp unicode
 
 namespace
 ++++++++++++++++++++++++++
@@ -41,10 +46,14 @@ check to see dupe name          comp 301/321
 
 roomnumber
 ++++++++++++++++++++++++++
-room number nont negative (alphanum)comp 281
-can't be alpha
-can't be unicode
-
+room number not negative (alphanum) comp 281
+can't be alpha                      comp log7
+can't be unicode                    comp log7
+room number is 003 vs 03 vs 3       comp log7                        -- have to use logread to ensure this happened
+room number is 0                    comp log7
+register overflow 64 bit signed     comp log7
+register overflow 64 bit unsigned   comp log7
+register overflow ridonkulous       comp log7
 
 
 Entering
@@ -69,13 +78,14 @@ can't leave room while in dif room  comp 121
 can't leave room after left room    comp 301
 can't leave room after left galelry comp 341
 
-wrong token                                     -K
-overflow token                                  -K
-room number is 003 vs 03 vs 3                           -- have to use logread to ensure this happened
-room number is 0
+token
++++++++++++++++++++++++++++++++
+wrong token                         comp log8
+overflow token                      comp log8
+
+
+
 shuffle order of arguments -K foo -T 10 vs -T 10 -K foo
 realllllllllly long name
-register overflow (reallllly big number)
-
 
 
