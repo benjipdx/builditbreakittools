@@ -1,8 +1,5 @@
 #ut our notes here about how we want to attack
 
-#possible languages
-- ruby
-- go
 
 #from whiteboard
 
@@ -23,10 +20,12 @@ Siphon Info from SQL DB
 
 Correctness: Must be tested in batch and single mode  | type
 ---------------------------------------------------------------
-Add line after each "should fail" case that is legit to ensure
-that the log is working appropriately. While this happens as the
-test cases run in general I have added a line where it is person
-specific. // IDEA SCRAPPED IN THE INTEREST OF AUTOMATION
+About the different willfail files: Each file is the same as
+every other file in the sense that they all check for the same
+thing and in the same order. However, from file to file the
+order of the flags differs.
+
+
 
 Timestamp
 +++++++++++++++++++++++++++
@@ -39,10 +38,12 @@ can't be alpha                comp unicode
 namespace
 ++++++++++++++++++++++++++
 collision across employee/guest comp  0
-can't have unicode
-can't be numeric
+can't have unicode              comp log6
+can't be numeric                comp log6
 check to see dupe name          comp 301/321
         like entering 2x
+really long name                comp log6
+
 
 roomnumber
 ++++++++++++++++++++++++++
