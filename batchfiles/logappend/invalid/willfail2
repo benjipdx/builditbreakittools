@@ -184,5 +184,4 @@
 -K token -T 353 -G gS -L -R 1 log1
 -K token -T 354 -G gS -L log1
 -K token -T 355 -G gS -L -R 1 log1
-
-
+// END OF TESTS

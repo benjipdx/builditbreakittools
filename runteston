@@ -1,0 +1,54 @@
+#!/usr/bin/env python
+# logappend
+# rainy_day_hackers
+# Sep 13, 2014
+#
+
+# assumptions:
+# path to logappend
+
+import argparse
+import sys
+import os.path
+
+parser = argparse.ArgumentParser(description='runs the provided executable and reports on expect results vs. actual')
+
+parser.add_argument('-x', dest='execu', action='store', help="The path to the file containing the executable")
+parser.add_argument('-w', dest='wfail', action='store', help="The path to the willfail file to use")
+
+args, unknown = parser.parse_known_args()
+
+# can we use our own test script?
+if (len(unknown) or not (args.execu and args.batch)):
+        print("rtfm!")
+        print("The Manual: -x path/to/exec -w path/to/willfail")
+        sys.exit(-1)
+
+if not os.path.isfile(args.execu)
+        print("path to executable is wrong")
+        sys.exit(-1)
+
+if not os.path.isfile(args.batch)
+        print("path to willfail is wrong")
+        sys.exit(-1)
+
+
+# Overview
+#
+# a) we first invoke the -b version of the executable on willfail1
+# b) then iterate (starting from beginning again) through willfail1 using exec without -b
+# c) repeat steps a and b for willfail2
+#
+# More specifically
+#
+# However we need to create mini-batch versions so that we can determine simply where something fails. This
+# means first parsing the willfail (which separates tests via //comments). We can use these comments as documentation
+# for what kind of error we found. So, the lines between //comments will be created into minibatch files, the output
+# of each can be more effectively evaluated because it is a limited case and always a unique guest/employee that is
+# easily traced back if requried.
+
+
+
+
+
+
