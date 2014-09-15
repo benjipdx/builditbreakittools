@@ -10,26 +10,29 @@
 import argparse
 import sys
 import os.path
+import call
 
 parser = argparse.ArgumentParser(description='runs the provided executable and reports on expect results vs. actual')
 
-parser.add_argument('-x', dest='execu', action='store', help="The path to the file containing the executable")
-parser.add_argument('-w', dest='wfail', action='store', help="The path to the willfail file to use")
+parser.add_argument('-r', dest='logr', action='store', help="The path to enemy logread and filename")
+parser.add_argument('-a', dest='loga', action='store', help="The path to enemy logappend and filename")
+parser.add_argument('-g', dest='generic', action='store', help="generic path to enemy directory")
+
 
 args, unknown = parser.parse_known_args()
 
 # can we use our own test script?
 if (len(unknown) or not (args.execu and args.batch)):
         print("rtfm!")
-        print("The Manual: -x path/to/exec -w path/to/willfail")
+        print("The Manual: -r path/to/enemylogread -a path/to/enemylogappend")
         sys.exit(-1)
 
-if not os.path.isfile(args.execu)
-        print("path to executable is wrong")
+if not os.path.isfile(args.logr)
+        print("path to enemy logread is wrong")
         sys.exit(-1)
 
-if not os.path.isfile(args.batch)
-        print("path to willfail is wrong")
+if not os.path.isfile(args.loga)
+        print("path to enemy logappend is wrong")
         sys.exit(-1)
 
 
@@ -48,7 +51,31 @@ if not os.path.isfile(args.batch)
 # easily traced back if requried.
 
 
+readfile = open(args.batch)
+writefile = open(minibatch,"a")
+count = 0
+oldtestline=''
+minibatch=args.generic+'/minibatch'
 
+for testline in readfile:
+    if testline[0] == "/":                              # divider
+        count += 1                                      # which test are you on?
+        call([args.logr, "-b", "minibatch", "1>", "tempresults"])    # run as batch put results somewhere
+        if not(os.path.isfile(tempresults)):            # should generate output - every test fails.
+            print("correctness violation at test {0} - {1}\n".format(count,oldtestline))
+        else:
+            if ("invalid" == open.tempresults.read() ): # invalid should be the only thing in there and only once
+                print("correctness violation at test {0} - {1}\n".format(count, oldtestline))
+        if count < 22:                                  # first 22 tests are one liners
+            if os.path.isfile(log1):                    # was a log created? teams may handle differently
+                if os.stat('log1').st_size > 0:
+                    print("correctness violation at test {0} - {1}\n".format(count, oldtestline))
+        else:                                           # generate expected output
+            
 
+        oldtestine = testine
+        call(["rm", minibatch]
+    else:                                               # make the new minibatch file
+        open(minibatch,"a").write(testline)                 # append to mini batch file
 
 
