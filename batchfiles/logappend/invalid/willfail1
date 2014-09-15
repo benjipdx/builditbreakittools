@@ -1,4 +1,3 @@
-// UNICODE STYLE TESTS
 // timestamp
 -T ፲ -K token -E ethiopian -A log10
 -T ௲ -K token -E tamil -A log10

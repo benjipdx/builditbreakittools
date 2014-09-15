@@ -1,0 +1,141 @@
+-T ፲ -K token -E ethiopian -A log1
+-T ௲ -K token -E tamil -A log1
+-T ⑩  -K token -E circleten -A log1
+-T ⑾  -K token -E cicrleeleven -A log1
+-T ⒓  -K token -E fullstoptwelve -A log1
+-T ⓭  -K token -E circletthirteen -A log1
+-T foo -K token -E alphatimestampe -A log1
+-T 1 -K ffÀff -E Agrave -A log1
+-T 2 -K aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -E longToken -A log1
+-T 3 -K b -G wrongtoken -A log1
+-T 1 -K token -G guestA -A log1
+-T 2 -K token -G guestB -A log1
+-T 3 -K token -G guestC -A log1
+-T 4 -K token -G guestD -A log1
+-T 5 -K token -G guestE -A log1
+-T 6 -K token -G guestF -A log1
+-T 7 -K token -G guestG -A log1
+-T 8 -K token -G guestH -A log1
+-T 9 -K token -G guestI -A log1
+-T 10 -K token -G guestJ -A log1
+-T 11 -K token -G guestK -A log1
+-T 12 -K token -G guestA -A -R 2 log1
+-T 13 -K token -G guestB -A -R 02 log1
+-T 14 -K token -G guestC -A -R 002 log1
+-T 15 -K tokem -G guestD -A -R 0 log1
+-T 16 -K token -G guestE -A -R ⓭ log1
+-T 17 -K token -G guestF -A -R 99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999 log1
+-T 18 -K token -G guestG -A -R 9223372036854775808 log1
+-T 19 -K token -G guestH -A -R 18446744073709551616 log1
+-T 20 -K token -G guestI -A -R foo log1
+-T 1 -K token -E aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -A log1
+-T 2 -K token -E aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaz -A log1
+-T 3 -K token -G ⓭  -A log1
+-T 3 -K token -G 13 -A log1
+-T -2 -K token -E pAA -A log1
+-T -1 -K token -G pBB -A log1
+-T 0 -K token -E pA -A log1
+-T 5 -K token -E pA -A -R 1 log1
+-T 6 -K token -G pA -A log1
+-T 2 -K token -E pB -A log1
+-T 3 -K token -G pC -A log1
+-T 5 -K token -E pD -A log1
+-T 5 -K token -G pE -A log1
+-T 11 -K token -E eA -A log1
+-T 12 -K token -E eA -L log1
+-T 13 -K token -E eA -A log1
+-T 21 -K token -G gA -A log1
+-T 22 -K token -G gA -L log1
+-T 23 -K token -G gA -A log1
+-T 31 -K token -E eB -A -R 1 log1
+-T 41 -K token -G gB -A -R 1 log1
+-T 51 -K token -E eC -L log1
+-T 61 -K token -G gC -L log1
+-T 71 -K token -E eD -L -R 2 log1
+-T 91 -K token -G gD -L -R 2 log1
+-T 101 -K token -E eE -A log1
+-T 102 -K token -E eE -L -R 1 log1
+-T 111 -K token -G gE -A log1
+-T 112 -K token -G gE -L -R 1 log1
+-T 121 -K token -E eF -A log1
+-T 122 -K token -E eF -A -R 1 log1
+-T 123 -K token -E eF -L -R 2 log1
+-T 131 -K token -G gF -A log1
+-T 132 -K token -G gF -A -R 1 log1
+-T 133 -K token -G gF -L -R 2 log1
+-T 141 -K token -E eG -A log1
+-T 142 -K token -E eG -A -R 1 log1
+-T 143 -K token -E eG -A -R 2 log1
+-T 151 -K token -G gG -A log1
+-T 152 -K token -G gG -A -R 1 log1
+-T 153 -K token -G gG -A -R 2 log1
+-T 161 -K token -E eH -A log1
+-T 162 -K token -E eH -A -R 1 log1
+-T 163 -K token -E eH -A -R 1 log1
+-T 171 -K token -G gH -A log1
+-T 172 -K token -G gH -A -R 1 log1
+-T 173 -K token -G gH -A -R 1 log1
+-T 181 -K token -E eI -A log1
+-T 182 -K token -E eI -A -R 1 log1
+-T 183 -K token -E eI -L log1
+-T 191 -K token -G gI -A log1
+-T 192 -K token -G gI -A -R 1 log1
+-T 193 -K token -G gI -L log1
+-T 201 -K token -E eJ -A log1
+-T 202 -K token -E eJ -L log1
+-T 203 -K token -E eJ -L log1
+-T 211 -K token -G gJ -A log1
+-T 212 -K token -G gJ -L log1
+-T 213 -K token -G gJ -L log1
+-T 221 -K token -E eK -A log1
+-T 222 -K token -E eK -A -R 1 log1
+-T 223 -K token -E eK -L -R 1 log1
+-T 224 -K token -E eK -L log1
+-T 225 -K token -E eK -L log1
+-T 231 -K token -G gK -A log1
+-T 232 -K token -G gK -A -R 1 log1
+-T 233 -K token -G gK -L -R 1 log1
+-T 234 -K token -G gK -L log1
+-T 235 -K token -G gK -L log1
+-T 241 -K token -E eM -A log1
+-T 242 -K token -E eM -A log1
+-T 251 -K token -G gM -A log1
+-T 252 -K token -G gM -A log1
+-T 261 -K token -E eN -A log1
+-T 262 -K token -E eN -A -R 1 log1
+-T 263 -K token -E eN -A log1
+-T 271 -K token -G gN -A log1
+-T 272 -K token -G gN -A -R log1
+-T 273 -K token -G gN -A log1
+-T 281 -K token -E eP -A log1
+-T 282 -K token -E ep -A -R -2 log1
+-T 291 -K token -G gP -A log1
+-T 292 -K token -G gP -A -R -3 log1
+-T 301 -K token -E eQ -A log1
+-T 302 -K token -E eQ -A -R 1 log1
+-T 303 -K token -E eQ -L -R 1 log1
+-T 304 -K token -E eQ -L -R 1 log1
+-T 311 -K token -G gQ -A log1
+-T 312 -K token -G gQ -A -R 1 log1
+-T 313 -K token -G gQ -L -R 1 log1
+-T 314 -K token -G gQ -L -R 1 log1
+-T 321 -K token -E eR -A log1
+-T 322 -K token -E eR -A -R 1 log1
+-T 323 -K token -E eR -L -R 1 log1
+-T 324 -K token -E eR -L log1
+-T 325 -K token -E eR -A -R 1 log1
+-T 331 -K token -G gR -A log1
+-T 332 -K token -G gR -A -R 1 log1
+-T 333 -K token -G gR -L -R 1 log1
+-T 334 -K token -G gR -L log1
+-T 335 -K token -G gR -A -R 1 log1
+-T 341 -K token -E eS -A log1
+-T 342 -K token -E eS -A -R 1 log1
+-T 343 -K token -E eS -L -R 1 log1
+-T 344 -K token -E eS -L log1
+-T 345 -K token -E eS -L -R 1 log1
+-T 351 -K token -G gS -A log1
+-T 352 -K token -G gS -A -R 1 log1
+-T 353 -K token -G gS -L -R 1 log1
+-T 354 -K token -G gS -L log1
+-T 355 -K token -G gS -L -R 1 log1
