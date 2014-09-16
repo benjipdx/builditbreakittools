@@ -32,10 +32,6 @@ oldtestline=''
 minibatch='minibatch'
 
 # clean up from any previous runs
-if os.path.isfile(minibatch):
-    os.remove(minibatch)
-if os.path.isfile('log1'):
-    os.remove('log1')
 if os.path.isfile('finalresults'):
     os.remove('finalresults')
 
@@ -43,6 +39,10 @@ examinethis=open('finalresults',"a")                    # look here to see how i
 
 
 for item in ["willfail10", "willfail20"]:
+    if os.path.isfile(minibatch):
+        os.remove(minibatch)
+    if os.path.isfile('log1'):
+        os.remove('log1')
     print(item)
     testfile=open(item,"r")
     examinethis.write(item)
@@ -78,8 +78,7 @@ for item in ["willfail10", "willfail20"]:
             m=open(minibatch,"a")
             m.write(testline)                               # append to mini batch file
             m.close()
-
-    # cleanup
+    print("next testfile")
     testfile.close()
-
+    count=0
 examinethis.close()
