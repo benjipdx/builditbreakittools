@@ -1,0 +1,196 @@
+// ethopian time
+-K token -T ፲ -E ethiopian -A log1
+//  tamil time
+-K token -T ௲ -E tamil -A log1
+// circle time
+-K token -T ⑩  -E circleten -A log1
+// circletime2
+-K token -T ⑾  -E cicrleeleven -A log1
+// big number time
+-K token -T ⒓  -E fullstoptwelve -A log1
+// other circle time
+-K token -T ⓭  -E circletthirteen -A log1
+// foo time
+-K token -T foo -E alphatimestampe -A log1
+// special char token
+-K token -T 1 -K ffÀff -E Agrave -A log1
+// Timestamp can't be negative
+-K token -T -2 -E pAA -A log1
+-K token -T -1 -G pBB -A log1
+//  bad guestname
+-K token -T 3 -G ⓭  -A log1
+// Can't enter room before entering gallery - employee
+-K token -T 31 -E eB -A -R 1 log1
+// Can't enter room before entering gallery - guest
+-K token -T 41 -G gB -A -R 1 log1
+// Can't leave gallery without being in gallery - employee
+-K token -T 51 -E eC -L log1
+// Can't leave gallery without being in gallery - guest
+-K token -T 61 -G gC -L log1
+// Can't leave room without being in gallery - employee
+-K token -T 71 -E eD -L -R 2 log1
+// 8an't leave room without being in gallery - guest
+-K token -T 91 -G gD -L -R 2 log1
+//
+-K token -T 1 -E base -A log1
+-K token -T 9 -G guestI -A log1
+-K token -T 20 -G guestI -A -R foo log1
+// names
+-K token -T 1 -E aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -A log1
+-K token -T 2 -E aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaz -A log1
+// Can namespace collide across employee/guest division - I think yes, but it deserves watching - also setup for time check
+-K token -T 0 -E pA -A log1
+-K token -T 5 -E pA -A -R 1 log1
+-K token -T 6 -G pA -A log1
+// Can't leave and re-enter gallery - employee test
+-K token -T 11 -E eA -A log1
+-K token -T 12 -E eA -L log1
+-K token -T 13 -E eA -A log1
+// Can't leave and re-enter gallery - guest test
+-K token -T 21 -G gA -A log1
+-K token -T 22 -G gA -L log1
+-K token -T 23 -G gA -A log1
+// Can't leave room without being in it (in gallery only) - employee
+-K token -T 101 -E eE -A log1
+-K token -T 102 -E eE -L -R 1 log1
+// Can't leave room without being in it (in gallery only) - guest
+-K token -T 111 -G gE -A log1
+-K token -T 112 -G gE -L -R 1 log1
+// Can't leave room without being in it (in dif room) - employee
+-K token -T 121 -E eF -A log1
+-K token -T 122 -E eF -A -R 1 log1
+-K token -T 123 -E eF -L -R 2 log1
+// Can't leave room without being in it (in dif room) - guest
+-K token -T 131 -G gF -A log1
+-K token -T 132 -G gF -A -R 1 log1
+-K token -T 133 -G gF -L -R 2 log1
+// Can't enter a room when you are in dif one - employee
+-K token -T 141 -E eG -A log1
+-K token -T 142 -E eG -A -R 1 log1
+-K token -T 143 -E eG -A -R 2 log1
+// Can't enter a room when you are in dif one - guest
+-K token -T 151 -G gG -A log1
+-K token -T 152 -G gG -A -R 1 log1
+-K token -T 153 -G gG -A -R 2 log1
+// Can't enter room while in the same room - employee
+-K token -T 161 -E eH -A log1
+-K token -T 162 -E eH -A -R 1 log1
+-K token -T 163 -E eH -A -R 1 log1
+// Can't enter room while in the same room - guest
+-K token -T 171 -G gH -A log1
+-K token -T 172 -G gH -A -R 1 log1
+-K token -T 173 -G gH -A -R 1 log1
+// Can't leave gallery if you are in a room. - employee
+-K token -T 181 -E eI -A log1
+-K token -T 182 -E eI -A -R 1 log1
+-K token -T 183 -E eI -L log1
+// Can't leave gallery if you are in a room. - guest
+-K token -T 191 -G gI -A log1
+-K token -T 192 -G gI -A -R 1 log1
+-K token -T 193 -G gI -L log1
+// Can't leave gallery twice (from gallery) - employee
+-K token -T 201 -E eJ -A log1
+-K token -T 202 -E eJ -L log1
+-K token -T 203 -E eJ -L log1
+// Can't leave gallery twice (from gallery) - guest
+-K token -T 211 -G gJ -A log1
+-K token -T 212 -G gJ -L log1
+-K token -T 213 -G gJ -L log1
+// Can't leave gallery twice (out of room) - employee
+-K token -T 221 -E eK -A log1
+-K token -T 222 -E eK -A -R 1 log1
+-K token -T 223 -E eK -L -R 1 log1
+-K token -T 224 -E eK -L log1
+-K token -T 225 -E eK -L log1
+// Can't leave gallery twice (out of room) - guest
+-K token -T 231 -G gK -A log1
+-K token -T 232 -G gK -A -R 1 log1
+-K token -T 233 -G gK -L -R 1 log1
+-K token -T 234 -G gK -L log1
+-K token -T 235 -G gK -L log1
+// Can't arrive gallery twice(in gallery) - employee
+-K token -T 241 -E eM -A log1
+-K token -T 242 -E eM -A log1
+// Can't arrive gallery twice(in gallery) - guest
+-K token -T 251 -G gM -A log1
+-K token -T 252 -G gM -A log1
+// Can't arrive gallery twice(in room) - employee
+-K token -T 261 -E eN -A log1
+-K token -T 262 -E eN -A -R 1 log1
+-K token -T 263 -E eN -A log1
+// Can't arrive gallery twice(in room) - guest
+-K token -T 271 -G gN -A log1
+-K token -T 272 -G gN -A -R log1
+-K token -T 273 -G gN -A log1
+// Room Number alphanumeric ('negative integer' should fail) - employee
+-K token -T 281 -E eP -A log1
+-K token -T 282 -E ep -A -R -2 log1
+// Room Number alphanumeric ('negative integer' should fail) - guest
+-K token -T 291 -G gP -A log1
+-K token -T 292 -G gP -A -R -3 log1
+// Can't leave room after left room- employee
+-K token -T 301 -E eQ -A log1
+-K token -T 302 -E eQ -A -R 1 log1
+-K token -T 303 -E eQ -L -R 1 log1
+-K token -T 304 -E eQ -L -R 1 log1
+// Can't leave room after left room -guest
+-K token -T 311 -G gQ -A log1
+-K token -T 312 -G gQ -A -R 1 log1
+-K token -T 313 -G gQ -L -R 1 log1
+-K token -T 314 -G gQ -L -R 1 log1
+// Can't enter room after left gallery - employee
+-K token -T 321 -E eR -A log1
+-K token -T 322 -E eR -A -R 1 log1
+-K token -T 323 -E eR -L -R 1 log1
+-K token -T 324 -E eR -L log1
+-K token -T 325 -E eR -A -R 1 log1
+// Can't enter room after left gallery - guest
+-K token -T 331 -G gR -A log1
+-K token -T 332 -G gR -A -R 1 log1
+-K token -T 333 -G gR -L -R 1 log1
+-K token -T 334 -G gR -L log1
+-K token -T 335 -G gR -A -R 1 log1
+// Can't leave room after left gallery - employee
+-K token -T 341 -E eS -A log1
+-K token -T 342 -E eS -A -R 1 log1
+-K token -T 343 -E eS -L -R 1 log1
+-K token -T 344 -E eS -L log1
+-K token -T 345 -E eS -L -R 1 log1
+// Can't leave room after left gallery - guest
+-K token -T 351 -G gS -A log1
+-K token -T 352 -G gS -A -R 1 log1
+-K token -T 353 -G gS -L -R 1 log1
+-K token -T 354 -G gS -L log1
+-K token -T 355 -G gS -L -R 1 log1
+// Can't have event prior to latest event - employee
+-K token -T 10 -E pppp -A log1
+-K token -T 2 -E pB -A log1
+// Can't have event prior to latest event - guest
+-K token -T 10 -E pppp -A log1
+-K token -T 3 -G pC -A log1
+// Can't have event as same time of latest event - employee
+-K token -T 5 -E pppp -A log1
+-K token -T 5 -E pD -A log1
+// Can't have event as same time of latest event - guest
+-K token -T 5 -E pppp -A log1
+-K token -T 5 -G pE -A log1
+// room number 0 v 00 and unicode and negative
+-K token -T 1 -G guestA -A log1
+-K token -T 2 -G guestB -A log1
+-K token -T 3 -G guestC -A log1
+-K token -T 4 -G guestD -A log1
+-K token -T 5 -G guestE -A log1
+-K token -T 6 -G guestF -A log1
+-K token -T 7 -G guestG -A log1
+-K token -T 8 -G guestH -A log1
+-K token -T 10 -G guestJ -A log1
+-K token -T 11 -G guestK -A log1
+-K token -T 12 -G guestA -A -R 2 log1
+-K token -T 13 -G guestB -A -R 02 log1
+-K token -T 14 -G guestC -A -R 002 log1
+-K token -T 15 -G guestD -A -R 0 log1
+-K token -T 16 -G guestE -A -R ⓭ log1
+-K token -T 17 -G guestF -A -R 99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999 log1
+-K token -T 18 -G guestG -A -R 9223372036854775808 log1
+-K token -T 19 -G guestH -A -R 18446744073709551616 log1
+// END OF TEST
