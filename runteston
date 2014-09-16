@@ -36,6 +36,8 @@ minibatch='minibatch'
 
 if os.path.isfile(minibatch):
     os.remove(minibatch)
+if os.path.isfile('log1'):
+    os.remove('log1')
 if os.path.isfile('finalresults'):
     os.remove('finalresults')
 examinethis=open('finalresults',"a")
@@ -44,7 +46,7 @@ willfail=open('willfail10', "r")
 
 for testline in willfail:
     if testline[0] == "/":                              # divider
-        call(["./logappend", " -B", " minibatch"], shell=True) # run as batch put results somewhere
+        call(["./logappend", "-B", "minibatch"]) # run as batch put results somewhere
 
         if count < 16:                                  # first 22 tests are one liners
             if os.path.isfile("log1"):                  # was a log created? teams may handle differently
@@ -54,11 +56,11 @@ for testline in willfail:
         else:                                           # generate expected output
             # run our own logappend logread to genereate expected output
             # first capture their resultts for posterity
-            theirresults = str(check_output(["./logread", "-K", "token", "-S", "log1"], shell=True))     # capture the logread of their results
+            theirresults = str(check_output(["./logread", "-K", "token", "-S", "log1"]))     # capture the logread of their results
             # then run our logappend in batch mode on the minibatch
             call(["./generateDB -B minibatch"], shell=True)
             # now read the log we made
-            ourresults = str(check_output(["./readDB", "-K", "token", "-S", "log1"], shell=True))     # capture the logread of their results
+            ourresults = str(check_output(["./readDB", "-K", "token", "-S", "log1"]))     # capture the logread of their results
             if not (theirresults == ourresults):
                 examinethis.write("correctness violation at test {0} - {1}\n".format(count, oldestline))
 
@@ -71,7 +73,8 @@ for testline in willfail:
         if os.path.isfile('log1'):
             os.remove('log1')
     else:                                                   # make the new minibatch file
-        open(minibatch,"a").write(testline)                 # append to mini batch file
-
+        m=open(minibatch,"a")
+        m.write(testline)                                   # append to mini batch file
+        m.close()
 examinethis.close()
 willfail.close()
