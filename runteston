@@ -11,6 +11,7 @@ import argparse
 import sys
 import os.path
 from subprocess import check_output
+from subprocess import call
 
 #parser = argparse.ArgumentParser(description='runs the provided executable and reports on expect results vs. actual')
 # parser.add_argument('-r', dest='logr', action='store', help="The path to enemy logread and filename")
@@ -60,31 +61,35 @@ for testline in willfail:
         count += 1                                      # which test are you on?
         tempresults=open('foo', "w+")
         theirresults=open('foo2', "w+")
-        #call(["./logappend", "-b", "minibatch"], stdout=tempresults) # run as batch put results somewhere
-        tempresults.write(check_output(["./logappend -b minibatch"], shell=True)) # only good if you really trust the input
-        tempresults.seek(0)
+        with tempresults as sys.stdout: retcode = call(["./logappend", "-b", "minibatch"], shell=True) #, tempresults=sys.stdout) # run as batch put results somewhere
+        #tempresults.write(str(check_output(["./logappend -b minibatch"], shell=True))) # only good if you really trust the input
+        #tempresults.seek(0)
         print("debugging, value of tempresults is {0}".format(tempresults.read()))
+        if not(retcode == -1):
+                print("correctness violation at test {0} - {1}\n".format(count, oldtestline))
         if not("invalid" == tempresults.read()):        # invalid should be the only thing in there and only once
                 print("correctness violation at test {0} - {1}\n".format(count, oldtestline))
                 tempresults.close()
 
         if count < 22:                                  # first 22 tests are one liners
             if os.path.isfile("log1"):                    # was a log created? teams may handle differently
-                #call(["./logread", "-K", "token", "-S", "log1"], stdout=theirresults)     # capture the logread of those results
-                theirresults.write(check_output(["./logread -K token -S log1"], shell=True)) #trusted output only
+                retcode=call(["./logread", "-K", "token", "-S", "log1"], theirresults=sys.stdout)     # capture the logread of those results
+                #theirresults.write(check_output(["./logread -K token -S log1"], shell=True)) #trusted output only
                 theirresults.close()
+                if retcode:
+                    print("correctness violation at test {0} - {1}\n".format(count, oldtestline))
                 if os.stat('foo2').st_size > 0:         # if they made a log, it should have no entries and so foo2 == 0 bytes
                     print("correctness violation at test {0} - {1}\n".format(count, oldtestline))
         else:                                           # generate expected output
             # run our own logappend logread to genereate expected output
             # first capture their resultts for posterity
-            # call(["./logread", "-K", "token", "-S", "log1"], stdout=theirresults)     # capture the logread of their results
-            theirresults.write(check_output(["./logread -K token -S log1"], shell=True))     # capture the logread of their results
+            retcode= call(["./logread", "-K", "token", "-S", "log1"], theirresults=sys.stdout)     # capture the logread of their results
+            #theirresults.write(check_output(["./logread -K token -S log1"], shell=True))     # capture the logread of their results
             # then run our logappend in batch mode on the minibatch
             call(["./generateDB -b minibatch"], shell=True)
             tempresults2=open('foobar', "w+")
-            #call(["./readDB", "-K", "token", "-S", "log1"], stdout=tempresults2)    # run as batch put our results somewhere
-            tempresults2.write(check_output(["./readDB -K token -S log1"], shell=True))    # run as batch put our results somewhere
+            retcode=call(["./readDB", "-K", "token", "-S", "log1"], tempresults2=sys.stdout)    # run as batch put our results somewhere
+            #tempresults2.write(check_output(["./readDB -K token -S log1"], shell=True))    # run as batch put our results somewhere
             theirresults.close()
             tempresults2.close()
             result=call(["diff", "foobar", "foo2"])     # take a quick look (this may or may not be the most robust)
