@@ -66,7 +66,7 @@ for item in ["willfail10", "willfail20"]:
                 # now read the log we made and capture the logread of our results
                 ourresults = str(check_output(["./readDB", "-K", "token", "-S", "log1"]))
                 if not (theirresults == ourresults):
-                    examinethis.write("correctness violation at test {0} - {1}\n".format(count, oldestline))
+                    examinethis.write("correctness violation at test {0} - {1}\n".format(count, oldtestline))
 
 
             # cleanup and make naming reflect what is broke
