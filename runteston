@@ -60,6 +60,8 @@ for item in ["willfail10", "willfail20"]:
                 # first capture their results for posterity
                 theirresults = str(check_output(["./logread", "-K", "token", "-S", "log1"]))
                 # then run our logappend in batch mode on the minibatch
+                if os.path.isfile("log1"):
+                    os.remove("log1")
                 call(["./generateDB -B minibatch"], shell=True)
                 # now read the log we made and capture the logread of our results
                 ourresults = str(check_output(["./readDB", "-K", "token", "-S", "log1"]))
