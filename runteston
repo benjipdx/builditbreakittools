@@ -67,7 +67,7 @@ for item in ["willfail10", "willfail20"]:
                 ourresults = str(check_output(["./readDB", "-K", "token", "-S", "log1"]))
                 if not (theirresults == ourresults):
                     examinethis.write("correctness violation at test {0} - {1}\n".format(count, oldtestline))
-
+                    examinethis.write("ours:\n{0}\ntheirs:\n{1}\n--end--".format(ourresults,theirresults))
 
             # cleanup and make naming reflect what is broke
             count += 1                                      # which test are you on?
